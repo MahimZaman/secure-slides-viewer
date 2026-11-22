@@ -1,0 +1,402 @@
+.ssv-wrapper {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+/* Toolbar */
+.ssv-toolbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ssv-toggle {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #374151;
+  display: flex;
+  align-items: center;
+}
+
+/* Page Control */
+.ssv-page-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #374151;
+  justify-content: flex-end;
+}
+
+.ssv-page-input {
+  width: 60px !important;
+  height: 32px;
+  padding: 0 !important;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.ssv-page-input:focus {
+  border-color: var(--cs-notes-color-schema);
+}
+
+/* Layout */
+.ssv-viewer-area {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.ssv-sidebar {
+  width: 120px;
+  padding: 12px 10px;
+  overflow-y: auto;
+  background: #f1f5f9;
+  border-right: 1px solid #e5e7eb;
+  transition:
+    width 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.ssv-sidebar canvas {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.ssv-sidebar canvas:hover {
+  opacity: 1;
+}
+
+.ssv-sidebar canvas.active {
+  outline: 2px solid var(--cs-notes-color-schema);
+  opacity: 1;
+}
+
+/* Collapsed */
+.ssv-wrapper.ssv-collapsed .ssv-sidebar {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+  border-right: none;
+}
+
+/* Main */
+.ssv-main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.ssv-main canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Scrollbars */
+.ssv-sidebar::-webkit-scrollbar,
+.ssv-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ssv-sidebar::-webkit-scrollbar-thumb,
+.ssv-main::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.ssv-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #374151 !important;
+  font-size: 20px;
+}
+
+/* Hover */
+.ssv-toggle:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Active (when sidebar collapsed) */
+.ssv-wrapper.ssv-collapsed .ssv-toggle {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff !important;
+}
+
+/* Icon smooth transition */
+.ssv-toggle i {
+  transition: transform 0.25s ease;
+}
+
+/* Rotate icon when collapsed */
+.ssv-wrapper.ssv-collapsed .ssv-toggle i {
+  transform: rotate(180deg);
+}
+
+.ssv-main {
+  overflow: auto;
+  touch-action: none;
+}
+
+.ssv-fake-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Fake blurred PDF background */
+.ssv-blur-layer {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Center overlay */
+.ssv-expired-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card */
+.ssv-expired-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+}
+
+/* Title */
+.ssv-expired-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.ssv-expired-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Button */
+.ssv-repurchase-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.ssv-repurchase-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.ssv-wrapper {
+  position: relative;
+}
+
+/* NAV ARROWS */
+.ssv-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 5;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.ssv-prev {
+  left: 10px;
+}
+
+.ssv-next {
+  right: 10px;
+}
+
+.ssv-wrapper:hover .ssv-nav button {
+  opacity: 1;
+}
+
+/* Toolbar buttons */
+.ssv-toolbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ssv-fullscreen i {
+  color: #121212;
+}
+
+.ssv-page-control i {
+  color: #121212;
+}
+
+.ssv-page-control button,
+.ssv-fullscreen {
+  box-shadow: none !important;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* FULLSCREEN ROOT */
+.ssv-wrapper:fullscreen,
+.ssv-wrapper.ssv-fullscreen-active {
+  width: 100vw;
+  height: 100vh;
+  background: #000; /* optional for better viewing */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Viewer area takes remaining space */
+.ssv-wrapper:fullscreen .ssv-viewer-area,
+.ssv-wrapper.ssv-fullscreen-active .ssv-viewer-area {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Sidebar full height + scroll */
+.ssv-wrapper:fullscreen .ssv-sidebar,
+.ssv-wrapper.ssv-fullscreen-active .ssv-sidebar {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Main preview full height */
+.ssv-wrapper:fullscreen .ssv-main,
+.ssv-wrapper.ssv-fullscreen-active .ssv-main {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Canvas should fit screen height */
+.ssv-wrapper:fullscreen .ssv-main canvas,
+.ssv-wrapper.ssv-fullscreen-active .ssv-main canvas {
+  max-height: 100%;
+  height: 90vh !important;
+  object-fit: contain;
+  width: auto;
+}
+
+.ssv-wrapper:fullscreen .ssv-toolbar,
+.ssv-wrapper.ssv-fullscreen-active .ssv-toolbar {
+  flex-shrink: 0;
+}
+
+.ssv-only-result {
+  display: none !important;
+}
+
+.wpProQuiz_questionList:has(input[disabled]) .ssv-only-result {
+  display: inline-block !important;
+}
+
+.ssv-main {
+  overflow: hidden;
+  touch-action: none;
+  cursor: default;
+}
+
+.ssv-main.ctrl-active {
+  cursor: grab;
+}
+
+.ssv-main.ctrl-active:active {
+  cursor: grabbing;
+}
+
+.ssv-main canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ssv-pdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ssv-pdf-header > button {
+  padding: 10px 20px !important;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--cs-notes-color-schema);
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .ssv-pdf-header {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

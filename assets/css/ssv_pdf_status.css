@@ -1,0 +1,45 @@
+#ssv-pdf-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+#ssv-pdf-card i {
+  margin: 0 !important;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ssv-pdf-card.completed {
+  background: #16a34a;
+}
+
+#ssv-pdf-card.failed {
+  background: #dc2626;
+}
+
+#ssv-pdf-card .ssv-icon {
+  font-size: 18px;
+}
+
+.spin {
+  animation: ssv-spin 1s linear infinite;
+}
+
+@keyframes ssv-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
